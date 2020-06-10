@@ -1,0 +1,25 @@
+﻿  auxiliary_functions.cpp
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(41): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(52): warning C4305: '+=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(65): warning C4305: '+=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(66): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(81): warning C4305: '-=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(94): warning C4305: '-=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(97): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(110): warning C4305: '-=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(111): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(121): warning C4305: '+=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(122): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(135): warning C4305: '-=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(136): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(146): warning C4305: '+=': truncation from 'double' to 'float'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(147): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  RRT_RRT_STAR_NEW.vcxproj -> E:\MyFolder\C course\RRT_RRT_STAR_NEW\Debug\RRT_RRT_STAR_NEW.exe
