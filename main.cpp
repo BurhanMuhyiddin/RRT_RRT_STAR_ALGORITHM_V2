@@ -1,5 +1,8 @@
 #include <iostream>
 #include <Windows.h>
+#include <time.h>
+#include <vector>
+#include <stdlib.h> 
 #include <gl/glut.h>
 #include <gl/GLU.h>
 #include <gl/GL.h>
@@ -7,6 +10,7 @@
 #include "menu_parameters.h"
 #include "draw_map.h"
 #include "auxiliary_functions.h"
+#include "rrt_algorithm.h"
 
 using namespace std;
 
@@ -27,17 +31,22 @@ void initMenu();
 bool isDrawMap = false;
 bool is_set_goal = false;
 bool is_set_init = false;
+bool is_start_to_solve_rrt = false;
+bool is_mission_accomplished = false;
 int sub1, sub2, returnmenu;
 float goalX = 999, goalY = 999;
 float startX = 999, startY = 999;
 // End of user-defined variables
 
 extern unsigned int map[Y_MAX][X_MAX];
+extern vector < vector<int> > nodes;
 
 void init()
 {
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	initMenu();
+	srand(time(NULL));
+	initRRT();
 }
 
 int main(int argc, char** argv)
@@ -78,9 +87,7 @@ void initMenu()
 
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
-
 int counter = 0;
-
 void display_callback()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -89,13 +96,18 @@ void display_callback()
 	if (isDrawMap)
 	{
 		drawMap();
+
+		if (is_start_to_solve_rrt && !is_mission_accomplished)
+		{
+			is_mission_accomplished = solveRRT();
+			//drawParentMap();
+		}
+
+		visualizeNodes();
+		visualizeConnectionsBetweenNodes();
 	}
 
-	if (counter == 2)
-	{
-		counter = 0;
-		cout << isPathFree((int)startX, (int)startY, (int)goalX, (int)goalY) << endl;
-	}
+	if (is_mission_accomplished)	cout << "Reached goal..." << endl;
 
 	glutSwapBuffers();
 }
@@ -146,6 +158,10 @@ void keyboard_callback(unsigned char key, int x, int y)
 		is_set_init = false;
 		is_set_goal = true;
 		break;
+	case 's':
+		is_set_init = false;
+		is_set_goal = false;
+		is_start_to_solve_rrt = true;
 	}
 }
 
@@ -169,8 +185,12 @@ void mouse_callback(int button, int state, int mouseX, int mouseY)
 				startY = tempY;
 			}
 
+			vector <int> temp;
+			temp.push_back((int)startX);
+			temp.push_back((int)startY);
+			nodes.push_back(temp);
+
 			map[(int)startY][(int)startX] = 5;
-			counter++;
 		}
 		else if (is_set_goal)
 		{
@@ -188,8 +208,22 @@ void mouse_callback(int button, int state, int mouseX, int mouseY)
 				goalY = tempY;
 			}
 
-			map[(int)goalY][(int)goalX] = 6;
-			counter++;
+			int glX = (int)goalX; int glY = (int)goalY;
+
+			map[glY][glX] = 6;
+
+			for (int i = 0; i < R; i++)
+			{
+				int j = i + 1;
+				map[glY - j][glX - j] = 7;
+				map[glY - j][glX] = 7;
+				map[glY - j][glX + j] = 7;
+				map[glY][glX + j] = 7;
+				map[glY][glX - j] = 7;
+				map[glY + j][glX - j] = 7;
+				map[glY + j][glX] = 7;
+				map[glY + j][glX + j] = 7;
+			}
 		}
 	}
 }

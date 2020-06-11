@@ -14,5 +14,8 @@ void loadNarrowPassage();
 void loadConcave();
 void emptyMap();
 void drawMap();
+void visualizeNodes();
+void visualizeConnectionsBetweenNodes();
+void drawLine(int x1, int y1, int x2, int y2);
 
 #endif // !DRAW_MAP_H_INCLUDED

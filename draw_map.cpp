@@ -1,15 +1,63 @@
 #include <iostream>
+#include <vector>
 #include <gl/glut.h>
 #include <gl/GLU.h>
 #include <gl/GL.h>
 #include <string.h>
 #include "draw_map.h"
 #include "window_parameters.h"
+#include "auxiliary_functions.h"
 
 using namespace std;
 
 extern bool isDrawMap;
+extern vector < vector<int> > nodes;
+
 unsigned int map[Y_MAX][X_MAX] = { 0 };
+extern int parent[Y_MAX][X_MAX];
+
+void visualizeNodes()
+{
+	glPointSize(3);
+	glColor3f(0.5, 0.75, 0.12);
+
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		glBegin(GL_POINTS);
+
+		glVertex2f(nodes[i][0], nodes[i][1]);
+
+		glEnd();
+	}
+}
+
+void visualizeConnectionsBetweenNodes()
+{
+	for (int i = 0; i < X_MAX; i++)
+	{
+		for (int j = 0; j < Y_MAX; j++)
+		{
+			if (parent[j][i] != INF)
+			{
+				int pX = d1IndexToD2Index(parent[j][i])[0]; int pY = d1IndexToD2Index(parent[j][i])[1];
+				int cX = i; int cY = j;
+
+				drawLine(pX, pY, cX, cY);
+			}
+		}
+	}
+}
+
+void drawLine(int x1, int y1, int x2, int y2)
+{
+	glColor3f(0.5, 0.5, 0.5);
+	glBegin(GL_LINES);
+
+	glVertex2i(x1, y1);
+	glVertex2i(x2, y2);
+
+	glEnd();
+}
 
 void loadMapNone()
 {
@@ -169,6 +217,11 @@ void drawMap()
 			else if (map[i][j] == 6)
 			{
 				glColor3f(0.0, 1.0, 0.0);
+				glRectd(j, i, j + 1, i + 1);
+			}
+			else if (map[i][j] == 7)
+			{
+				glColor3f(0.0, 0.9, 0.3);
 				glRectd(j, i, j + 1, i + 1);
 			}
 		}
