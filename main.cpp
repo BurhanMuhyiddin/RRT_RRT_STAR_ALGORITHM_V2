@@ -32,6 +32,8 @@ bool isDrawMap = false;
 bool is_set_goal = false;
 bool is_set_init = false;
 bool is_start_to_solve_rrt = false;
+bool isSolveRRT = false;
+bool isSolveRRT_Star = false;
 bool is_mission_accomplished = false;
 int sub1, sub2, returnmenu;
 float goalX = 999, goalY = 999;
@@ -87,7 +89,7 @@ void initMenu()
 
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
-int counter = 0;
+
 void display_callback()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -138,10 +140,10 @@ void menu_callback(int item)
 			loadConcave();
 			break;
 		case RRT:
-			cout << "rrt" << endl;
+			isSolveRRT = true;
 			break;
 		case RRT_STAR:
-			cout << "rrt_star" << endl;
+			isSolveRRT_Star = true;
 			break;
 	}
 }
@@ -161,7 +163,7 @@ void keyboard_callback(unsigned char key, int x, int y)
 	case 's':
 		is_set_init = false;
 		is_set_goal = false;
-		is_start_to_solve_rrt = true;
+		if(isSolveRRT)	is_start_to_solve_rrt = true;
 	}
 }
 

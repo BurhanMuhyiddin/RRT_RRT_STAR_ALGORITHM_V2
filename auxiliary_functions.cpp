@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <math.h>
 #include <gl/glut.h>
 #include <gl/GLU.h>
 #include <gl/GL.h>
@@ -62,115 +64,100 @@ bool isGoalReached(int x, int y)
 	return false;
 }
 
+double getNextPoint(int stX, int stY, int glX, int glY, double tX)  // c1 is the x coordinate of next point
+{
+	double temp = 0.0;
+
+	int b = abs(stY - glY);
+	int c = abs(stX - glX);
+	double c1 = abs(tX - stX*1.0);
+	double d = b * 1.0 * c1 / c / 1.0; // this is b1
+
+	if (stX <= glX && stY >= glY)
+	{
+		temp = (stY*1.0 - d);
+	}
+	else if (stX >= glX && stY >= glY)
+	{
+		temp = (stY*1.0 - d);
+	}
+	else if (stX >= glX && stY <= glY)
+	{
+		temp = (stY*1.0 + d);
+	}
+	else if (stX <= glX && stY <= glY)
+	{
+		temp = (stY*1.0 + d);
+	}
+
+	return temp;
+}
+
 bool isPathFree(int stX, int stY, int glX, int glY)
 {
-	float tempX = stX, tempY = stY;
-	int difY = abs(glY - stY);
-	int difX = abs(glX - stX);
-	float angle = atan(difY*1.0 / difX * 1.0);
+	double tempX = stX, tempY = stY;
 
-	if (stX < glX && stY != glY)
+	while (1)
 	{
-		if (stY > glY)
+		if (((int)tempX == glX) && ((int)tempY == glY))
 		{
-			while (((int)tempX != glX) && ((int)tempY != glY))
-			{
-				tempX += SAMPLING_STEP;
-				tempY = stY * 1.0 - (tan(angle)*1.0*abs(tempX - stX));
-				//drawMiddlePoints(tempX, tempY);
-				if (!isInFreeSpace(tempX, tempY))
-				{
-					return false;
-				}
-			}
+			break;
 		}
-		else
+		else if (tempX < glX && tempY != glY)
 		{
-			while (((int)tempX != glX) && ((int)tempY != glY))
+			tempX += SAMPLING_STEP;
+			tempY = getNextPoint(stX, stY, glX, glY, tempX);
+
+			if (!isInFreeSpace(floor(tempX), floor(tempY)))
 			{
-				tempX += SAMPLING_STEP;
-				tempY = stY * 1.0 + (tan(angle)*1.0*abs(tempX - stX));
-				//drawMiddlePoints(tempX, tempY);
-				if (!isInFreeSpace(tempX, tempY))
-				{
-					return false;
-				}
+				return false;
 			}
+
 		}
-	}
-	else if (stX > glX && stY != glY)
-	{
-		if (stY > glY)
+		else if (tempX > glX && tempY != glY)
 		{
-			while (((int)tempX != glX) && ((int)tempY != glY))
+			tempX -= SAMPLING_STEP;
+			tempY = getNextPoint(stX, stY, glX, glY, tempX);
+
+			if (!isInFreeSpace(floor(tempX), floor(tempY)))
 			{
-				tempX -= SAMPLING_STEP;
-				tempY = stY * 1.0 - (tan(angle)*1.0*abs(tempX - stX));
-				//drawMiddlePoints(tempX, tempY);
-				if (!isInFreeSpace(tempX, tempY))
-				{
-					return false;
-				}
+				return false;
 			}
+
 		}
-		else
+		else if (tempX == glX && tempY != glY)
 		{
-			while (((int)tempX != glX) && ((int)tempY != glY))
-			{
-				tempX -= SAMPLING_STEP;
-				tempY = stY * 1.0 + (tan(angle)*1.0*abs(tempX - stX));
-				//drawMiddlePoints(tempX, tempY);
-				if (!isInFreeSpace(tempX, tempY))
-				{
-					return false;
-				}
-			}
-		}
-	}
-	else if (stX == glX && stY != glY)
-	{
-		if (stY > glY)
-		{
-			while ((int)tempY != glY)
+			if (tempY > glY)
 			{
 				tempY -= SAMPLING_STEP;
-				if (!isInFreeSpace(tempX, tempY))
+				if (!isInFreeSpace(floor(tempX), floor(tempY)))
 				{
 					return false;
 				}
 			}
-		}
-		else
-		{
-			while ((int)tempY != glY)
+			else
 			{
 				tempY += SAMPLING_STEP;
-				if (!isInFreeSpace(tempX, tempY))
+				if (!isInFreeSpace(floor(tempX), floor(tempY)))
 				{
 					return false;
 				}
 			}
 		}
-	}
-	else if (stY == glY && stX != glX)
-	{
-		if (stX > glX)
+		else if (tempY == glY && tempX != glX)
 		{
-			while ((int)tempX != glX)
+			if (tempX > glX)
 			{
 				tempX -= SAMPLING_STEP;
-				if (!isInFreeSpace(tempX, tempY))
+				if (!isInFreeSpace(floor(tempX), floor(tempY)))
 				{
 					return false;
 				}
 			}
-		}
-		else
-		{
-			while ((int)tempX != glX)
+			else
 			{
 				tempX += SAMPLING_STEP;
-				if (!isInFreeSpace(tempX, tempY))
+				if (!isInFreeSpace(floor(tempX), floor(tempY)))
 				{
 					return false;
 				}

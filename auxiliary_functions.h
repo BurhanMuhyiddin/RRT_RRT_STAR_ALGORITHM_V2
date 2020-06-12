@@ -1,7 +1,7 @@
 #ifndef AUXILIARY_FUNCTIONS_INCLUDED_H
 #define AUXILIARY_FUNCTIONS_INCLUDED_H
 
-#define SAMPLING_STEP	0.1
+#define SAMPLING_STEP	0.5
 #define INF				9999999
 
 float mapValue(float val, float fromMin, float fromMax, float toMin, float toMax);
@@ -12,5 +12,6 @@ double calculateDistance(int x1, int y1, int x2, int y2);
 int* generateRandomPoint();
 bool isGoalReached(int x, int y);
 int* d1IndexToD2Index(int index); 
+double getNextPoint(int stX, int stY, int glX, int glY, double c1);
 
 #endif // !AUXILIARY_FUNCTIONS_INCLUDED_H

@@ -161,8 +161,6 @@ void loadNarrowPassage()
 		map[i][X_MAX - BARRIER_THICKNESS - PASSAGE_MARGIN] = 1;
 	}
 
-
-
 	isDrawMap = true;
 }
 

@@ -62,9 +62,9 @@ int* calculateNode(int stX, int stY, int glX, int glY)
 {
 	int temp[2];
 
-	int a = MIN_DISTANCE_TO_NODE;
-	int b = calculateDistance(stX, stY, glX, glY);
-	int c = abs(stY - glY);
+	double a = MIN_DISTANCE_TO_NODE;
+	double b = calculateDistance(stX, stY, glX, glY);
+	double c = abs(stY*1.0 - glY*1.0);
 	double d = a * c*1.0 / b / 1.0;
 	double f = sqrt(pow(a, 2) - pow(d, 2));
 
@@ -106,20 +106,24 @@ bool solveRRT()
 		nodeIndex = returnClosestNode(x1, y1);
 		x2 = nodes[nodeIndex][0];
 		y2 = nodes[nodeIndex][1];
-		newNode = calculateNode(x2, y2, x1, y1);
-		int newX = newNode[0];
-		int newY = newNode[1];
-		if (isGoalReached(newX, newY))
+		if (calculateDistance(x2, y2, x1, y1) > MIN_DISTANCE_TO_NODE)
 		{
-			return true;
-		}
-		if (isInFreeSpace(newX, newY))
-		{
-			vector <int> temp;
-			temp.push_back(newX); temp.push_back(newY);
-			nodes.push_back(temp);
+			newNode = calculateNode(x2, y2, x1, y1);
+			int newX = newNode[0];
+			int newY = newNode[1];
+			if (isGoalReached(newX, newY))
+			{
+				return true;
+			}
+			//if (isInFreeSpace(newX, newY))
+			if (isPathFree(x2, y2, newX, newY))
+			{
+				vector <int> temp;
+				temp.push_back(newX); temp.push_back(newY);
+				nodes.push_back(temp);
 
-			parent[newY][newX] = d2IndexToD1Index(x2, y2);
+				parent[newY][newX] = d2IndexToD1Index(x2, y2);
+			}
 		}
 		//draw line between new node and temp
 		//drawLine(x2, y2, newX, newY);

@@ -6,5 +6,5 @@ e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(28): warning
           [
               _Ty=int
           ]
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(224): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(222): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   RRT_RRT_STAR_NEW.vcxproj -> E:\MyFolder\C course\RRT_RRT_STAR_NEW\Debug\RRT_RRT_STAR_NEW.exe
