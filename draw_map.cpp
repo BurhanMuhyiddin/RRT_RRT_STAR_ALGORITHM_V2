@@ -15,6 +15,8 @@ extern vector < vector<int> > nodes;
 
 unsigned int map[Y_MAX][X_MAX] = { 0 };
 extern int parent[Y_MAX][X_MAX];
+extern int theLastPointX;
+extern int theLastPointY;
 
 void visualizeNodes()
 {
@@ -42,15 +44,40 @@ void visualizeConnectionsBetweenNodes()
 				int pX = d1IndexToD2Index(parent[j][i])[0]; int pY = d1IndexToD2Index(parent[j][i])[1];
 				int cX = i; int cY = j;
 
-				drawLine(pX, pY, cX, cY);
+				drawLine(pX, pY, cX, cY, 0.5, 0.5, 0.5, 0.5);
 			}
 		}
 	}
 }
 
-void drawLine(int x1, int y1, int x2, int y2)
+void visualizeFinalPath()
 {
-	glColor3f(0.5, 0.5, 0.5);
+	int tempX = 0, tempY = 0;
+
+	int tempIndex = parent[theLastPointY][theLastPointX];
+	int* tmp = d1IndexToD2Index(tempIndex);
+	tempX = tmp[0]; tempY = tmp[1];
+
+	drawLine(theLastPointX, theLastPointY, tempX, tempY, 0.5, 0.0, 0.8, 1.5);
+
+	while (tempIndex != INF)
+	{
+		tempIndex = parent[tempY][tempX];
+		if (tempIndex == INF)	break;
+
+		int temp1X = tempX, temp1Y = tempY;
+		tmp = d1IndexToD2Index(tempIndex);
+		tempX = tmp[0]; tempY = tmp[1];
+
+		drawLine(temp1X, temp1Y, tempX, tempY, 0.5, 0.0, 0.8, 1.5);
+	}
+}
+
+void drawLine(int x1, int y1, int x2, int y2, float r, float g, float b, float lineThickness)
+{
+	glColor3f(r, g, b);
+	glLineWidth(lineThickness);
+
 	glBegin(GL_LINES);
 
 	glVertex2i(x1, y1);

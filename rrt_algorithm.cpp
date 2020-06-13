@@ -12,6 +12,7 @@ using namespace std;
 
 vector < vector<int> > nodes;
 int parent[Y_MAX][X_MAX] = { 0 };
+int theLastPointX = 0, theLastPointY = 0;
 
 extern float startX, startY;
 
@@ -113,6 +114,9 @@ bool solveRRT()
 			int newY = newNode[1];
 			if (isGoalReached(newX, newY))
 			{
+				theLastPointX = newX;
+				theLastPointY = newY;
+				parent[newY][newX] = d2IndexToD1Index(x2, y2);
 				return true;
 			}
 			//if (isInFreeSpace(newX, newY))

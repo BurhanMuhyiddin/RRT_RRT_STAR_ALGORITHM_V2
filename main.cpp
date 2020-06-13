@@ -109,7 +109,10 @@ void display_callback()
 		visualizeConnectionsBetweenNodes();
 	}
 
-	if (is_mission_accomplished)	cout << "Reached goal..." << endl;
+	if (is_mission_accomplished)
+	{
+		visualizeFinalPath();
+	}
 
 	glutSwapBuffers();
 }

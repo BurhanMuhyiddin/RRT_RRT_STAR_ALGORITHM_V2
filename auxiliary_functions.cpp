@@ -48,7 +48,7 @@ int* generateRandomPoint()
 
 bool isInFreeSpace(int x, int y)
 {
-	if (map[y][x] == 1)
+	if (map[y][x] == 1 || map[y][x] == 5)
 	{
 		return false;
 	}
