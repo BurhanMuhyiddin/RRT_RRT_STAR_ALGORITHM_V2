@@ -47,7 +47,7 @@ void init()
 {
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	initMenu();
-	srand(time(NULL));
+	srand(time(0));
 	initRRT();
 }
 

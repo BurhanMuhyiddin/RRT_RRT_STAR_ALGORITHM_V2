@@ -5,6 +5,6 @@
 #define W_H		600
 #define X_MAX	60
 #define Y_MAX	60
-#define FPS		20
+#define FPS		60
 
 #endif // !WINDOW_PARAMETERS_INCLUDE_H
