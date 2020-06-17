@@ -11,6 +11,7 @@
 #include "draw_map.h"
 #include "auxiliary_functions.h"
 #include "rrt_algorithm.h"
+#include "rrt_star.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ bool isDrawMap = false;
 bool is_set_goal = false;
 bool is_set_init = false;
 bool is_start_to_solve_rrt = false;
+bool is_start_to_solve_rrt_star = false;
 bool isSolveRRT = false;
 bool isSolveRRT_Star = false;
 bool is_mission_accomplished = false;
@@ -104,6 +106,10 @@ void display_callback()
 			is_mission_accomplished = solveRRT();
 			//drawParentMap();
 		}
+		else if (is_start_to_solve_rrt_star && !is_mission_accomplished)
+		{
+			is_mission_accomplished = solveRRT();
+		}
 
 		visualizeNodes();
 		visualizeConnectionsBetweenNodes();
@@ -166,7 +172,15 @@ void keyboard_callback(unsigned char key, int x, int y)
 	case 's':
 		is_set_init = false;
 		is_set_goal = false;
-		if(isSolveRRT)	is_start_to_solve_rrt = true;
+		if (isSolveRRT)
+		{
+			is_start_to_solve_rrt = true;
+		}
+		if (isSolveRRT_Star)
+		{
+			initRRTStar();
+			is_start_to_solve_rrt_star = true;
+		}
 	}
 }
 

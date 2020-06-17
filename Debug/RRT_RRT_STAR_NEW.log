@@ -1,33 +1,15 @@
-﻿  auxiliary_functions.cpp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(111): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(122): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(133): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(141): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(152): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(160): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  draw_map.cpp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(26): warning C4018: '<': signed/unsigned mismatch
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(30): warning C4244: 'argument': conversion from '_Ty' to 'GLfloat', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(61): warning C4305: 'argument': truncation from 'double' to 'float'
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\draw_map.cpp(249): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  main.cpp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(50): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(184): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(185): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(207): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(208): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  rrt_algorithm.cpp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_algorithm.cpp(45): warning C4018: '<': signed/unsigned mismatch
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_algorithm.cpp(54): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+﻿  main.cpp
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(52): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(198): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(199): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(221): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\main.cpp(222): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  rrt_star.cpp
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(74): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(91): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(108): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(125): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(149): warning C4018: '<': signed/unsigned mismatch
+e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_star.cpp(155): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
   Generating Code...
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\rrt_algorithm.cpp(93): warning C4172: returning address of local variable or temporary: temp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(46): warning C4172: returning address of local variable or temporary: temp
-e:\myfolder\c course\rrt_rrt_star_new\rrt_rrt_star_new\auxiliary_functions.cpp(31): warning C4172: returning address of local variable or temporary: temp
   RRT_RRT_STAR_NEW.vcxproj -> E:\MyFolder\C course\RRT_RRT_STAR_NEW\Debug\RRT_RRT_STAR_NEW.exe
